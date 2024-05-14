@@ -1,0 +1,55 @@
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="Greeting">
+        <l:side-panel> 
+            <st:include page="sidepanel.jelly" it="${it.run}" optional="true" /> 
+        </l:side-panel>
+        <l:main-panel>
+            <h1>Hello Jenkins</h1>
+            <h2>This is a plugin to calculate the Sum of two numbers</h2>
+            <div>
+                <div><label for="number1">Number 1:</label></div>
+                <div><input type="number" name="number1" id="number1" style = "width: 100px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" /></div>
+            </div>
+            <div>
+                <div><label for="number2">Number 2:</label> </div>
+                <div><input type="number" name="number2" id="number2" style = "width: 100px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" /></div>
+            </div>
+            <div>
+                <button id="calculateBtn" style = " background-color: #C2FBD7;
+border-radius: 50px;
+border-width: 0;
+box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+color: #008000;
+cursor: pointer;
+display: inline-block;
+font-family: Arial, sans-serif;
+font-size: 1em;
+height: 50px;
+padding: 0 25px;
+transition: all 200ms; ">Calculate Sum</button>
+            </div>
+            <div id="sumResult"></div>
+        </l:main-panel>
+    </l:layout>
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            var num1 = parseInt(document.getElementById('number1').value);
+            var num2 = parseInt(document.getElementById('number2').value);
+            var sum = num1 + num2;
+            document.getElementById('sumResult').innerText = 'Sum: ' + sum;
+        });
+    </script>
+</j:jelly>
+

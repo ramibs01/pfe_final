@@ -1,0 +1,22 @@
+2024-05-02 14:40:52:675 grammar LogManager.java:25 before: (COMBINED_GRAMMAR JavaInterface (RULES (RULE compilationUnit (BLOCK (ALT (? (BLOCK (ALT packageDeclaration))) interfaceDeclaration EOF))) (RULE packageDeclaration (BLOCK (ALT 'package' qualifiedName ';'))) (RULE qualifiedName (BLOCK (ALT IDENTIFIER (* (BLOCK (ALT '.' IDENTIFIER)))))) (RULE interfaceDeclaration (BLOCK (ALT (? (BLOCK (ALT 'public'))) 'interface' IDENTIFIER interfaceBody))) (RULE interfaceBody (BLOCK (ALT '{' (* (BLOCK (ALT interfaceMember))) '}'))) (RULE interfaceMember (BLOCK (ALT interfaceMethod))) (RULE interfaceMethod (BLOCK (ALT type IDENTIFIER '(' ')' ';'))) (RULE type (BLOCK (ALT 'String'))) (RULE IDENTIFIER (BLOCK (ALT [a-zA-Z_] (* (BLOCK (ALT [a-zA-Z_0-9])))))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \t\r\n])))) skip)))))
+2024-05-02 14:40:52:685 grammar LogManager.java:25 after: (COMBINED_GRAMMAR JavaInterface (RULES (RULE compilationUnit (BLOCK (ALT (? (BLOCK (ALT packageDeclaration))) interfaceDeclaration EOF))) (RULE packageDeclaration (BLOCK (ALT 'package' qualifiedName ';'))) (RULE qualifiedName (BLOCK (ALT IDENTIFIER (* (BLOCK (ALT '.' IDENTIFIER)))))) (RULE interfaceDeclaration (BLOCK (ALT (? (BLOCK (ALT 'public'))) 'interface' IDENTIFIER interfaceBody))) (RULE interfaceBody (BLOCK (ALT '{' (* (BLOCK (ALT interfaceMember))) '}'))) (RULE interfaceMember (BLOCK (ALT interfaceMethod))) (RULE interfaceMethod (BLOCK (ALT type IDENTIFIER '(' ')' ';'))) (RULE type (BLOCK (ALT 'String'))) (RULE IDENTIFIER (BLOCK (ALT [a-zA-Z_] (* (BLOCK (ALT [a-zA-Z_0-9])))))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \t\r\n])))) skip)))))
+2024-05-02 14:40:52:699 grammar LogManager.java:25 after extract implicit lexer =(COMBINED_GRAMMAR JavaInterface (RULES (RULE compilationUnit (BLOCK (ALT (? (BLOCK (ALT packageDeclaration))) interfaceDeclaration EOF))) (RULE packageDeclaration (BLOCK (ALT 'package' qualifiedName ';'))) (RULE qualifiedName (BLOCK (ALT IDENTIFIER (* (BLOCK (ALT '.' IDENTIFIER)))))) (RULE interfaceDeclaration (BLOCK (ALT (? (BLOCK (ALT 'public'))) 'interface' IDENTIFIER interfaceBody))) (RULE interfaceBody (BLOCK (ALT '{' (* (BLOCK (ALT interfaceMember))) '}'))) (RULE interfaceMember (BLOCK (ALT interfaceMethod))) (RULE interfaceMethod (BLOCK (ALT type IDENTIFIER '(' ')' ';'))) (RULE type (BLOCK (ALT 'String')))))
+2024-05-02 14:40:52:699 grammar LogManager.java:25 lexer =(LEXER_GRAMMAR JavaInterfaceLexer (RULES (RULE T__0 (BLOCK (ALT 'package'))) (RULE T__1 (BLOCK (ALT ';'))) (RULE T__2 (BLOCK (ALT '.'))) (RULE T__3 (BLOCK (ALT 'public'))) (RULE T__4 (BLOCK (ALT 'interface'))) (RULE T__5 (BLOCK (ALT '{'))) (RULE T__6 (BLOCK (ALT '}'))) (RULE T__7 (BLOCK (ALT '('))) (RULE T__8 (BLOCK (ALT ')'))) (RULE T__9 (BLOCK (ALT 'String'))) (RULE IDENTIFIER (BLOCK (ALT [a-zA-Z_] (* (BLOCK (ALT [a-zA-Z_0-9])))))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [ \t\r\n])))) skip)))))
+2024-05-02 14:40:52:865 semantics LogManager.java:25 tokens={EOF=-1, T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, T__9=10, IDENTIFIER=11, WS=12}
+2024-05-02 14:40:52:865 semantics LogManager.java:25 strings={'package'=1, ';'=2, '.'=3, 'public'=4, 'interface'=5, '{'=6, '}'=7, '('=8, ')'=9, 'String'=10}
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 
+DECISION 0 in rule compilationUnit
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 look=[1, {4..5}]
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 LL(1)? true
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 
+DECISION 1 in rule qualifiedName
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 look=[3, 2]
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 LL(1)? true
+2024-05-02 14:40:52:870 LL1 LogManager.java:25 
+DECISION 2 in rule interfaceDeclaration
+2024-05-02 14:40:52:871 LL1 LogManager.java:25 look=[4, 5]
+2024-05-02 14:40:52:871 LL1 LogManager.java:25 LL(1)? true
+2024-05-02 14:40:52:871 LL1 LogManager.java:25 
+DECISION 3 in rule interfaceBody
+2024-05-02 14:40:52:871 LL1 LogManager.java:25 look=[10, 7]
+2024-05-02 14:40:52:871 LL1 LogManager.java:25 LL(1)? true

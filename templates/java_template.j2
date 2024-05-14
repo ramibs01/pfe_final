@@ -1,0 +1,43 @@
+package {{ package_name }};
+
+{% for imp in imports %}
+import {{ imp }};
+{% endfor %}
+
+public class {{ class_name }} implements {% for intf in interfaces %}{{ intf }}{% if not loop.last %}, {% endif %}{% endfor %} {
+    // Class body
+}
+#generate.py
+import os
+from jinja2 import Environment, FileSystemLoader
+
+class GenerateWidget:
+    def __init__(self, dropped_items, directory):
+        self.dropped_items = dropped_items
+        self.directory = directory
+
+    def generate_java_file(self):
+        class_name = self.dropped_items[0]
+        interfaces = self.dropped_items[1:]
+        
+        # Set up Jinja2 environment
+        template_loader = FileSystemLoader(searchpath="./templates")
+        env = Environment(loader=template_loader)
+
+        # Load Jinja2 template
+        template = env.get_template("java_template.j2")
+
+        # Render the template with data
+        rendered_java_code = template.render(
+            class_name=class_name,
+            interfaces=interfaces,
+            package_name="Classes",
+            imports=["hudson.Extension", "hudson.model.RootAction", "hudson.model.Run", "jenkins.model.RunAction2"]
+        )
+
+        # Write the rendered Java code to a file
+        file_path = os.path.join(self.directory, f"{class_name}.java")
+        with open(file_path, "w") as java_file:
+            java_file.write(rendered_java_code)
+
+        print(f"Java file '{file_path}' generated successfully.")
